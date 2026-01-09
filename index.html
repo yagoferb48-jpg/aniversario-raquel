@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Minha Amada - Raquel❤️</title>
+    <link rel="stylesheet" href="/style.css">
+</head>
+
+<body>
+    <!-- Tela de Entrada -->
+    <<body>
+  <!-- Tela de Entrada -->
+  <div class="intro" id="intro">
+    <h1>Raquel 💞</h1>
+    <p>Preparei algo especial para você...</p>
+    <button onclick="liberar()">Clique aqui, Raquel 💝</button>
+  </div>
+
+  <!-- CONTEÚDO ESCONDIDO -->
+  <div id="conteudo" style="display:none">
+
+    <div class="music">
+      <iframe
+        src="https://www.youtube.com/embed/-jMwRHpnGFQ?enablejsapi=1"
+        allow="autoplay"
+        allowfullscreen>
+      </iframe>
+    </div>
+
+    <!-- resto do seu site aqui -->
+
+    <!-- Hero -->
+    <header>
+        <div class="hero">
+            <h1>Feliz Aniversário, Raquel 🎉💕 "Amor da minha vida Todinha!</h1>
+            <p>
+                Hoje o dia é todo seu! Esse é uma pequena Supresa feita com muito amor, para celebrar a mulher incrivél
+                que você é.
+            </p>
+            <a href="#galeria" class="btn">Ver nossa história 📸</a>
+        </div>
+    </header>
+
+    <!-- Histrória -->
+    <section>
+        <h2>Raquel, minha história favorita</h2>
+        <div class="timeline">
+            <div class="moment">
+                <h3>💌 O Começo</h3>
+                <p>Desde o primeiro dia , seu sorriso mudou tudo.</p>
+                <img src="/fotos/WhatsApp Image 2026-01-08 at 21.10.42.jpeg" alt="nenem">
+            </div>
+            <div class="moment">
+                <h3>⭐ Sorrisos que Contagia</h3>
+                <p>Seu sorriso sempre cotangia todos a sua volta.</p>
+                <img src="/fotos/Brown Aesthetic Photo Collage Memories Collection Pinterest Pin.jpg" alt="familia">
+            </div>
+            <div class="moment">
+                <h3>🌹 Cada dia ao seu lado</h3>
+                <p>Com você, aprendi o verdadeiro significado do amor.</p>
+                <img src="/fotos/WhatsApp Image 2026-01-08 at 21.38.53.jpeg" alt="nossos momentos">
+            </div>
+
+            <div class="moment">
+                <h3>🎂 Hoje celebramos você</h3>
+                <p>
+                    Que esse novo ano seja cheio de saúde, paz e sonhos realizados -- de preferência comigo ao seu lado.
+                </p>
+                <img src="/fotos/Fotos (833).jpg" alt="juntos-pra-sempre">
+            </div>
+        </div>
+    </section>
+
+    <!-- Galeria -->
+     <section id="galeria">
+        <h2>Nossos Momentos 📸</h2>
+        <div class="gallery">
+            <img src="/fotos/IMG_20250304_111023130.jpg" alt="">
+            <img src="/fotos/IMG_20250920_190751378.jpg" alt="">
+            <img src="/fotos/20250519_072526-COLLAGE.jpg" alt="">
+            <img src="/fotos/IMG_20260104_211918208.jpg" alt="">
+            <img src="/fotos/IMG_20250111_215901710.jpg" alt="">
+            <img src="/fotos/IMG_3868.jpg" alt="">
+            <img src="/fotos/IMG_3793.jpg" alt="">
+            <img src="/fotos/Fotos (865).jpg" alt="">
+        </div>
+     </section>
+    <div class="moment">
+  <div class="carousel">
+    <button class="prev">‹</button>
+
+    <div class="carousel-track">
+      <img src="/fotos/IMG_20250304_111023130.jpg">
+      <img src="/fotos/IMG_20250920_190751378.jpg">
+      <img src="/fotos/Fotos (833).jpg">
+    </div>
+
+    <button class="next">›</button>
+  </div>
+
+  <h3>Nosso começo</h3>
+  <p>O dia em que tudo mudou 💖</p>
+</div>
+
+
+
+     <!-- Rodapé -->
+      <footer>
+        <p>Com todo meu amor, ❤️ <br>Feliz Aniversário, Raquel</p>
+        <p>Do seu Maridão Yago</p>
+      </footer>
+      <div class="hearts"></div>
+      <script>
+/* =======================
+   CORAÇÕES
+======================= */
+const heartsContainer = document.querySelector('.hearts');
+let heartInterval;
+
+function createHeart() {
+  const heart = document.createElement('div');
+  heart.classList.add('heart');
+
+  const emojis = ['❤️', '💖', '💗', '💘'];
+  heart.innerHTML = emojis[Math.floor(Math.random() * emojis.length)];
+
+  heart.style.left = Math.random() * 100 + 'vw';
+  heart.style.fontSize = (18 + Math.random() * 20) + 'px';
+  heart.style.animationDuration = (6 + Math.random() * 2) + 's';
+
+  heartsContainer.appendChild(heart);
+  setTimeout(() => heart.remove(), 8000);
+}
+
+function startHeartsBeat() {
+  const bpm = 72;
+  const interval = (60 / bpm) * 1000;
+  heartInterval = setInterval(createHeart, interval);
+}
+
+/* =======================
+   BOTÃO INICIAL
+======================= */
+function liberar() {
+  document.getElementById("intro").style.display = "none";
+  document.getElementById("conteudo").style.display = "block";
+
+  const iframe = document.querySelector(".music iframe");
+  iframe.src += "&autoplay=1";
+
+  startHeartsBeat();
+}
+
+/* =======================
+   CARROSSEL
+======================= */
+document.querySelectorAll('.carousel').forEach(carousel => {
+  const track = carousel.querySelector('.carousel-track');
+  const slides = track.querySelectorAll('img');
+  const prev = carousel.querySelector('.prev');
+  const next = carousel.querySelector('.next');
+
+  let index = 0;
+
+  function updateCarousel() {
+    track.style.transform = `translateX(-${index * 100}%)`;
+  }
+
+  next.addEventListener('click', () => {
+    index = (index + 1) % slides.length;
+    updateCarousel();
+  });
+
+  prev.addEventListener('click', () => {
+    index = (index - 1 + slides.length) % slides.length;
+    updateCarousel();
+  });
+});
+</script>
+
+
+      
+
+</body>
+
+</html>

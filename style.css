@@ -1,0 +1,333 @@
+/* Tela de Entrada */
+#intro {
+  position: fixed;
+  inset: 0;
+  background: linear-gradient(180deg, #ff6b81, #ff9aa9);
+  color: #fff;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  z-index: 9999;
+  padding: 2rem;
+}
+
+#intro h1 {
+  font-size: 3rem;
+  margin-bottom: 1rem;
+}
+
+#intro p {
+  font-size: 1.3rem;
+  margin-bottom: 2rem;
+}
+
+#intro button {
+  background: #fff;
+  color: #ff6b81;
+  border: none;
+  padding: 1rem 2.5rem;
+  font-size: 1.2rem;
+  border-radius: 50px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: .3s;
+}
+
+#intro button:hover {
+  transform: scale(1.08);
+}
+
+/* Esconde o site até clicar */
+#conteudo {
+  display: none;
+}
+:root {
+  --primary: #ff6b81;
+  --light: #ffe6eb;
+  --text: #2f2f2f;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Segoe UI', sans-serif;
+}
+
+body {
+  background: linear-gradient(180deg, var(--light), #fff);
+  color: var(--text);
+}
+
+.music {
+  position: fixed;
+  bottom: 15px;
+  right: 15px;
+  z-index: 999;
+}
+
+.music iframe {
+  width: 260px;
+  height: 150px;
+  border-radius: 15px;
+}
+
+/* Hero */
+header {
+  min-height: 100vh;
+  background: linear-gradient(rgba(255,107,129,.7), rgba(255,107,129,.7)),
+url("/fotos/IMG-20240615-WA0178.jpg");
+  background-size: cover;
+  background-position:center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 2rem;
+}
+
+.hero {
+  color: #fff;
+  max-width: 800px;
+}
+
+.hero h1 {
+  font-size: 3rem;
+  margin-bottom: 1rem;
+}
+
+.hero p {
+  font-size: 1.2rem;
+  margin-bottom: 2rem;
+}
+
+.btn {
+  background: #fff;
+  color: var(--primary);
+  padding: 1rem 2rem;
+  border-radius: 50px;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+/* Sections */
+section {
+  max-width: 1100px;
+  margin: auto;
+  padding: 4rem 1.5rem;
+  text-align: center;
+}
+
+section h2 {
+  color: var(--primary);
+  font-size: 2.2rem;
+  margin-bottom: 2rem;
+}
+
+/* Timeline */
+.timeline {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.moment {
+  background: #fff;
+  padding: 1.5rem;
+  border-left: 5px solid var(--primary);
+  border-radius: 10px;
+  box-shadow: 0 10px 25px rgba(0,0,0,.08);
+  text-align: left;
+}
+
+/* Gallery */
+.gallery {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1rem;
+}
+
+.gallery img {
+  width: 100%;
+  border-radius: 15px;
+  transition: .3s;
+}
+
+.gallery img:hover {
+  transform: scale(1.05);
+}
+
+/* Footer */
+footer {
+  background: var(--primary);
+  color: #fff;
+  padding: 2rem 1rem;
+  text-align: center;
+}
+/* Corações flutuando */
+.hearts {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  overflow: hidden;
+  z-index: 10;
+}
+
+.heart {
+  position: absolute;
+  bottom: -40px;
+  animation-name: floatUp;
+  animation-timing-function: linear;
+}
+
+@keyframes floatUp {
+  0% {
+    transform: translateY(0) scale(1);
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(-110vh) scale(1.4);
+    opacity: 0;
+  }
+}
+@media (max-width: 768px) {
+  .hero h1 {
+    font-size: 2.2rem;
+  }
+
+  .hero p {
+    font-size: 1rem;
+  }
+
+  .music iframe {
+    width: 220px;
+    height: 125px;
+  }
+}
+.heart {
+  position: absolute;
+  bottom: -40px;
+  animation-name: floatUp, beat;
+  animation-timing-function: linear, ease-in-out;
+  animation-iteration-count: 1, infinite;
+}
+header {
+  animation: glow 6s ease-in-out infinite alternate;
+}
+
+@keyframes glow {
+  from {
+    filter: brightness(1);
+  }
+  to {
+    filter: brightness(1.08);
+  }
+}/* Imagens dentro dos momentos */
+.moment img {
+  width: 600px;
+  height: 700px;          /* Altura padrão */
+  object-fit: cover;     /* Corta sem distorcer */
+  border-radius: 12px;
+  margin-bottom: 1rem;
+  display: block;
+  transition: transform .3s ease, box-shadow .3s ease;
+}
+
+/* Hover suave na imagem */
+.moment img:hover {
+  transform: scale(1.03);
+  box-shadow: 0 10px 25px rgba(0,0,0,.15);
+}
+@media (max-width: 768px) {
+  .moment img {
+    height: 180px;
+  }
+}
+/* Carrossel */
+.carousel {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+  border-radius: 14px;
+  margin-bottom: 1rem;
+}
+
+.carousel-track {
+  display: flex;
+  transition: transform .4s ease;
+}
+
+.carousel-track img {
+  width: 100%;
+  height: 240px;
+  object-fit: cover;
+  flex-shrink: 0;
+  border-radius: 14px;
+}
+
+/* Botões */
+.carousel button {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(255,255,255,.85);
+  border: none;
+  font-size: 2rem;
+  padding: .2rem .7rem;
+  cursor: pointer;
+  border-radius: 50%;
+  color: var(--primary);
+  z-index: 2;
+}
+
+.carousel .prev {
+  left: 10px;
+}
+
+.carousel .next {
+  right: 10px;
+}
+
+/* Mobile */
+@media (max-width: 768px) {
+  .carousel-track img {
+    height: 180px;
+  }
+}
+.carousel {
+  position: relative;
+  overflow: hidden;
+  width: 100%;
+  max-width: 400px;
+  margin: auto;
+}
+
+.carousel-track {
+  display: flex;
+  transition: transform 0.5s ease;
+}
+
+.carousel img {
+  width: 100%;
+  flex-shrink: 0;
+  border-radius: 12px;
+}
+
+.carousel button {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(255,107,129,0.8);
+  border: none;
+  color: white;
+  font-size: 2rem;
+  padding: 0 12px;
+  cursor: pointer;
+  border-radius: 50%;
+}
+
+.carousel .prev { left: 10px; }
+.carousel .next { right: 10px; }
+
